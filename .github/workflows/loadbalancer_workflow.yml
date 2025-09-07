@@ -31,30 +31,30 @@ jobs:
           subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
 
       - name: terraform init
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform init
 
       - name: terraform fmt
         continue-on-error: true
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform fmt -check
                
       
       - name: terraform validate
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform validate
           
   
 
       - name: terraform plan
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform plan -out=tfplan
 
       - name: upload plan artifact
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
-          path: ./environments/dev/tfplan
+          path: ./environment/dev/tfplan
 
   apply:
     needs: build
@@ -69,7 +69,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
-          path: ./environments/dev/tfplan
+          path: ./environment/dev/tfplan
 
 
       - name: Azure Login
@@ -83,9 +83,9 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
         
       - name: terraform init
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform init
 
       - name: terraform apply
-        working-directory: ./environments/dev
+        working-directory: ./environment/dev
         run: terraform apply tfplan

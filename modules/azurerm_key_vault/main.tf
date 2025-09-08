@@ -18,20 +18,20 @@ resource "azurerm_key_vault" "kv" {
 
     key_permissions = [
       "Get",
+      "List"
     ]
 
     secret_permissions = [
-      "Get",
       "Set",
+      "Get",
       "Delete",
-      "List",
-      "Recover",
-      "Backup",
-      "Restore",
+      "Purge",
+      "Recover"  
     ]
 
-    storage_permissions = [
+    certificate_permissions = [
       "Get",
+      "List"
     ]
   }
 }

@@ -16,6 +16,7 @@ module "virtual_network" {
 module "subnet" {
   depends_on     = [module.virtual_network]
   source         = "../../modules/azurerm_subnet"
+  for_each       = var.subnets
   rg_name        = "rakeshdevlb-rg"
   vnet_name      = "rakeshdevlb-vnet"
   subnet_name    = "rakeshdevlb-subnet"
@@ -55,7 +56,7 @@ module "bastion" {
   source      = "../../modules/azurerm_bastion"
   rg_name     = "rakeshdevlb-rg"
   location    = "East US"
-  subnet_name = "rakeshdevlb-subnet"
+  subnet_name = "AzureBastionSubnet"
   vnet_name   = "rakeshdevlb-vnet"
 
 }

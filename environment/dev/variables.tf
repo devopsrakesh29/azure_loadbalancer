@@ -12,3 +12,7 @@ variable "nic_names" {
   }))
 
 }
+
+variable "subnets" {
+ }
+  

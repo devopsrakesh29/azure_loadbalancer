@@ -45,3 +45,20 @@ nic_names = {
     nic_name = "rakeshdevlb-nic2"
   }
 }
+
+subnets = {
+  "subnet1" = {
+    rg_name        = "rakeshdevlb-rg"
+    vnet_name      = "rakeshdevlb-vnet"
+    subnet_name    = "rakeshdevlb-subnet"
+    address_prefix = ["10.11.1.0/24"]
+  }
+  "subnet2" = {
+    rg_name        = "rakeshdevlb-rg"
+    vnet_name      = "rakeshdevlb-vnet"
+    subnet_name    = "AzureBastionSubnet"
+    address_prefix = ["10.11.2.0/24"]
+  }
+}
+
+

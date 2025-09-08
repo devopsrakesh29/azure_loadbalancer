@@ -1,6 +1,6 @@
 module "resource_group" {
   source   = "../../modules/azurerm_resource_group"
-  rg_name  = "rakesh-dev-rg"
+  rg_name  = "rakeshdevlb-rg"
   location = "East US"
 }
 

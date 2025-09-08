@@ -69,7 +69,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
-          path: ./environment/dev/tfplan
+          path: ./environment/dev/
 
 
       - name: Azure Login
@@ -88,4 +88,4 @@ jobs:
 
       - name: terraform apply
         working-directory: ./environment/dev
-        run: terraform apply tfplan
+        run: terraform apply --auto-approve tfplan

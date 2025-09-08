@@ -23,6 +23,7 @@ resource "azurerm_key_vault" "kv" {
 
     secret_permissions = [
       "Set",
+      "List",
       "Get",
       "Delete",
       "Purge",
